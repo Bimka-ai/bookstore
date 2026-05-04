@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книжный магазин | Мир книг</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ШАПКА САЙТА (header) -->
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <h1>📚 Мир книг</h1>
+            <p>Магазин книг, жанры, новинки и рецензии</p>
+        </div>
+        <!-- Поиск (форма, метод GET) -->
+        <form class="search-form" action="#" method="get" id="searchForm">
+            <input type="text" name="search_query" id="searchInput" placeholder="Поиск книг, авторов..." value="">
+            <button type="submit">🔍 Найти</button>
+        </form>
+    </div>
+    <!-- Основная навигация (nav) -->
+    <nav style="margin-top: 15px;">
+        <ul>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#genres">Жанры</a></li>
+            <li><a href="#new">Новинки</a></li>
+            <li><a href="#reviews">Рецензии</a></li>
+            <li><a href="#about">О магазине</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ОСНОВНОЕ СОДЕРЖИМОЕ (main) -->
+<main>
+    <!-- Блок с якорем и всплывающей подсказкой -->
+    <div style="margin-bottom: 20px; text-align: right;">
+        <a href="#special-offer" title="Перейти к специальному предложению" style="background:#f4c542; padding:6px 12px; border-radius:20px; text-decoration:none; color:#2c3e2f;">🎁 Акция месяца</a>
+    </div>
+
+    <!-- КАТАЛОГ (section) -->
+    <section id="catalog">
+        <h2>📖 Каталог книг</h2>
+        <div class="books-grid" id="catalogGrid">
+            <!-- Книга 1: Мастер и Маргарита -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book1.jpg" alt="Обложка книги Мастер и Маргарита" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Мастер и Маргарита</div>
+                <div class="book-author">М. Булгаков</div>
+                <div class="book-price">450 ₽</div>
+                <button class="btn" data-id="1">Подробнее</button>
+            </div>
+
+            <!-- Книга 2: Гарри Поттер -->
+            <div class="book-card" data-genre="fantasy">
+                <div class="book-cover">
+                    <img src="images/book2.jpeg" alt="Обложка книги Гарри Поттер" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Гарри Поттер</div>
+                <div class="book-author">Дж. Роулинг</div>
+                <div class="book-price">790 ₽</div>
+                <button class="btn" data-id="2">Подробнее</button>
+            </div>
+
+            <!-- Книга 3: Преступление и наказание -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book3.jpg" alt="Обложка книги Убийство в библиотеке" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Преступление и наказание</div>
+                <div class="book-author">Ф. Достоевский</div>
+                <div class="book-price">590 ₽</div>
+                <button class="btn" data-id="3">Подробнее</button>
+            </div>
+
+            <!-- Книга 4: Десять негритят -->
+            <div class="book-card" data-genre="detective">
+                <div class="book-cover">
+                    <img src="images/book4.webp" alt="Обложка книги Десять негритят" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Десять негритят</div>
+                <div class="book-author">А. Кристи</div>
+                <div class="book-price">920 ₽</div>
+                <button class="btn" data-id="4">Подробнее</button>
+            </div>
+
+            <!-- Книга 5: Властелин колец -->
+            <div class="book-card" data-genre="fantasy">
+                <div class="book-cover">
+                    <img src="images/book5.jpg" alt="Обложка книги Властелин колец" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Властелин колец</div>
+                <div class="book-author">Дж. Толкин</div>
+                <div class="book-price">850 ₽</div>
+                <button class="btn" data-id="5">Подробнее</button>
+            </div>
+
+            <!-- Книга 6: Шерлок Холмс -->
+            <div class="book-card" data-genre="detective">
+                <div class="book-cover">
+                    <img src="images/book6.png" alt="Обложка книги Шерлок Холмс" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Шерлок Холмс</div>
+                <div class="book-author">А. Конан Дойл</div>
+                <div class="book-price">520 ₽</div>
+                <button class="btn" data-id="6">Подробнее</button>
+            </div>
+
+            <!-- Книга 7: Краткая история времени -->
+            <div class="book-card" data-genre="science">
+                <div class="book-cover">
+                    <img src="images/book7.jpg" alt="Обложка книги Краткая история времени" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Краткая история времени</div>
+                <div class="book-author">С. Хокинг</div>
+                <div class="book-price">670 ₽</div>
+                <button class="btn" data-id="7">Подробнее</button>
+            </div>
+
+            <!-- Книга 8: Анна Каренина -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book2.jpg" alt="Обложка книги Анна Каренина" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Анна Каренина</div>
+                <div class="book-author">Л. Толстой</div>
+                <div class="book-price">480 ₽</div>
+                <button class="btn" data-id="8">Подробнее</button>
+            </div>
+
+            <!-- Книга 9: Алые паруса -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book8.jpg" alt="Обложка книги Алые паруса" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Алые паруса</div>
+                <div class="book-author">А. Грин</div>
+                <div class="book-price">380 ₽</div>
+                <button class="btn" data-id="9">Подробнее</button>
+           </div>
+
+           <!-- Книга 10: Мировой порядок -->
+            <div class="book-card" data-genre="science">
+                <div class="book-cover">
+                    <img src="images/book10.jpg" alt="Обложка книги Мировой порядок" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Мировой порядок</div>
+                <div class="book-author">Г. Киссинджер</div>
+                <div class="book-price">1050 ₽</div>
+                <button class="btn" data-id="10">Подробнее</button>
+           </div>
+
+           <!-- Книга 11: Тёмная Башня -->
+            <div class="book-card" data-genre="fantasy">
+                <div class="book-cover">
+                    <img src="images/book11.jpg" alt="Обложка книги Тёмная Башня" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Тёмная Башня</div>
+                <div class="book-author">C. Кинг</div>
+                <div class="book-price">550 ₽</div>
+                <button class="btn" data-id="11">Подробнее</button>
+           </div>
+
+           <!-- Книга 12: Тайна заброшенного дома -->
+            <div class="book-card" data-genre="detective">
+                <div class="book-cover">
+                    <img src="images/book12.jpg" alt="Обложка книги Тайна заброшенного дома" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Тайна заброшенного дома</div>
+                <div class="book-author">Ф. Дениссон</div>
+                <div class="book-price">690 ₽</div>
+                <button class="btn" data-id="12">Подробнее</button>
+           </div>
+
+           <!-- Книга 13: Капитанская дочка -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book13.png" alt="Обложка книги Капитанская дочка" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Капитанская дочка</div>
+                <div class="book-author">А. Пушкин</div>
+                <div class="book-price">600 ₽</div>
+                <button class="btn" data-id="13">Подробнее</button>
+           </div>
+
+           <!-- Книга 14: Химия навсегда -->
+            <div class="book-card" data-genre="science">
+                <div class="book-cover">
+                    <img src="images/book14.jpg" alt="Обложка книги Химия навсегда" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Химия навсегда</div>
+                <div class="book-author">Л. Орстрём</div>
+                <div class="book-price">900 ₽</div>
+                <button class="btn" data-id="14">Подробнее</button>
+           </div>
+
+           <!-- Книга 15: Герой нашего времени -->
+            <div class="book-card" data-genre="fiction">
+                <div class="book-cover">
+                    <img src="images/book15.webp" alt="Обложка книги Герой нашего времени" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Герой нашего времени</div>
+                <div class="book-author">М. Лермонтов</div>
+                <div class="book-price">530 ₽</div>
+                <button class="btn" data-id="15">Подробнее</button>
+           </div>
+  </section>
+  
+    <!-- ЖАНРЫ (таблица) -->
+    <section id="genres">
+        <h2>🎭 Жанры литературы</h2>
+        <table class="genres-table">
+            <thead>
+                <tr><th>Жанр</th><th>Описание</th><th>Популярные книги</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="#" class="genre-link" data-genre="fiction">Художественная литература</a></td>
+                    <td>Романы, повести, рассказы</td>
+                    <td>Мастер и Маргарита</td>
+                </tr>
+                <tr><td><a href="#" class="genre-link" data-genre="detective">Детективы</a></td>
+                    <td>Загадочные преступления</td>
+                    <td>Шерлок Холмс</td>
+                </tr>
+                <tr><td><a href="#" class="genre-link" data-genre="fantasy">Фэнтези</a></td>
+                    <td>Магия и приключения</td>
+                    <td>Гарри Поттер, Властелин колец</td>
+                </tr>
+                <tr><td><a href="#" class="genre-link" data-genre="science">Научная литература</a></td>
+                    <td>Наука, техника, психология</td>
+                    <td>Краткая история времени</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 12px;">*Нажмите на жанр, чтобы отфильтровать каталог</p>
+    </section>
+
+    <!-- НОВИНКИ + ИЗОБРАЖЕНИЕ-ССЫЛКА -->
+    <section id="new">
+        <h2>✨ Новинки этого месяца</h2>
+        <div class="books-grid" id="newBooksGrid">
+            <!-- Новинка 1: Мастер и Маргарита -->
+            <div class="book-card">
+                <div class="book-cover">
+            <img src="images/book1.jpg" alt="Обложка книги Мастер и Маргарита" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Мастер и Маргарита</div>
+                <div class="book-author">М. Булгаков</div>
+                <div class="book-price">450 ₽</div>
+                <span class="btn" style="background:#f4c542;">⭐ Новинка</span>
+            </div>
+
+            <!-- Новинка 2: Гарри Поттер -->
+            <div class="book-card">
+                <div class="book-cover">
+            <img src="images/book2.jpeg" alt="Обложка книги Гарри Поттера" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Гарри Поттер</div>
+                <div class="book-author">Дж. Роулинг</div>
+                <div class="book-price">790 ₽</div>
+                <span class="btn" style="background:#f4c542;">⭐ Новинка</span>
+            </div>
+
+            <!-- Новинка 3: Тайна заброшенного дома -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="images/book12.jpg" alt="Обложка книги Тайна заброшенного дома" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Тайна заброшенного дома</div>
+                <div class="book-author">Ф. Дениссон</div>
+                <div class="book-price">690 ₽</div>
+                <span class="btn" style="background:#f4c542;">⭐ Новинка</span>
+            </div>
+
+            <!-- Новинка 4: Краткая история времени -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="images/book7.jpg" alt="Обложка книги Краткая история времени" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+                </div>
+                <div class="book-title">Краткая история времени</div>
+                <div class="book-author">С. Хокинг</div>
+                <div class="book-price">670 ₽</div>
+                <span class="btn" style="background:#f4c542;">⭐ Новинка</span>
+            </div>
+        </div>
+        <!-- Изображение-ссылка -->
+        <div class="image-link-demo">
+            <a href="#catalog" title="Перейти в каталог за новинками">
+                <img src="images/catalog1.jpg" alt="Баннер новинок книжного магазина" width="100%" style="max-width:500px; border-radius:20px;">
+            </a>
+            <p><small>✨ Нажмите на баннер — перейти в каталог</small></p>
+        </div>
+    </section>
+
+    <!-- КОНТЕЙНЕР ДЛЯ РЕЦЕНЗИЙ + ASIDE -->
+    <div class="content-wrapper" id="reviews">
+        <div class="main-content">
+            <section>
+                <h2>📝 Рецензии читателей</h2>
+                <div id="reviewsList">
+                    <!-- Стартовые рецензии -->
+                    <article class="review-item">
+                        <strong>Ольга А.</strong> ★★★★☆<br>
+                        «Отличный роман! Захватывающий сюжет, советую всем любителям классики»<br>
+                        <small>Книга: "Капитанская дочка"</small>
+                    </article>
+                    <article class="review-item">
+                        <strong>Махлиё Т.</strong> ★★★★★<br>
+                        «Лучший детектив года. Не могла оторваться до последней страницы!»<br>
+                        <small>Книга: "Тайна заброшенного дома"</small>
+                    </article>
+                    <article class="review-item">
+                        <strong>София У.</strong> ★★★☆☆<br>
+                        «Интересная научная литература, но местами сложновато для новичков»<br>
+                        <small>Книга: "Краткая история времени"</small>
+                    </article>
+                </div>
+                <!-- Форма для добавления рецензии -->
+                <div class="review-form">
+                    <h3>Оставить свою рецензию</h3>
+                    <form id="newReviewForm">
+                        <label for="reviewerName">Ваше имя:</label>
+                        <input type="text" id="reviewerName" required placeholder="Например, Иван">
+
+                        <label for="bookSelect">Выберите книгу:</label>
+                        <select id="bookSelect">
+                            <option value="Тени прошлого">Тени прошлого - Дж. Мартин</option>
+                            <option value="Убийство в библиотеке">Убийство в библиотеке - К. Дойл</option>
+                            <option value="Капитанская дочка">Капитанская дочка - А. Пушкин</option>
+                            <option value="Мастер и Маргарита">Мастер и Маргарита</option>
+                        </select>
+
+                        <label for="rating">Оценка (1-5):</label>
+                        <input type="number" id="rating" min="1" max="5" step="1" value="5">
+
+                        <label for="reviewText">Текст рецензии:</label>
+                        <textarea id="reviewText" rows="3" placeholder="Поделитесь впечатлениями..."></textarea>
+
+                        <button type="button" id="submitReviewBtn">Добавить рецензию</button>
+                    </form>
+                </div>
+            </section>
+        </div>
+
+        <!-- ASIDE – Дополнительная информация -->
+        <aside id="special-offer">
+            <h3>🎁 Специальное предложение</h3>
+            <p>При заказе от 1500₽ — скидка 10% на любые новинки. Промокод: <strong>КНИЖНЫЙ2026</strong></p>
+            <hr>
+            <h3>📄 Ссылка на файл (каталог PDF)</h3>
+            <p>Скачать полный список книг в формате PDF:</p>
+            <a href="#" class="file-link" id="fakeFileLink" title="Скачать каталог книг (пример файла)">📥 Каталог_книг_2026.pdf (демо)</a>
+            
+            <h3>⭐ Топ-3 бестселлера</h3>
+            <ul style="margin-left:20px;">
+                <li>«Игра престолов» - Дж. Мартин</li>
+                <li>«Преступление и наказание»</li>
+                <li>«Тайна заброшенного дома</li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Ссылка на файл с якорем -->
+    <div style="margin: 20px 0;">
+        <a href="#special-offer" title="Перейти к спецпредложению">🔗 Перейти к акции </a>
+    </div>
+</main>
+
+<!-- (footer) -->
+<footer>
+    <p>© 2026 Мир книг — ваш надёжный магазин литературы. Все права защищены.</p>
+    <p>Выполнила студентка ИСПк-023 | Проект: книжный магазин </p>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
