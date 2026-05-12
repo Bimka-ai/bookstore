@@ -326,13 +326,8 @@
                         <label for="reviewerName">Ваше имя:</label>
                         <input type="text" id="reviewerName" required placeholder="Например, Иван">
 
-                        <label for="bookSelect">Выберите книгу:</label>
-                        <select id="bookSelect">
-                            <option value="Тени прошлого">Тени прошлого - Дж. Мартин</option>
-                            <option value="Убийство в библиотеке">Убийство в библиотеке - К. Дойл</option>
-                            <option value="Капитанская дочка">Капитанская дочка - А. Пушкин</option>
-                            <option value="Мастер и Маргарита">Мастер и Маргарита</option>
-                        </select>
+                        <label for="bookSelect">Книга:</label>
+                        <input type="text" id="bookSelect" required placeholder="Например, Мастер и Маргарита">
 
                         <label for="rating">Оценка (1-5):</label>
                         <input type="number" id="rating" min="1" max="5" step="1" value="5">
@@ -370,10 +365,30 @@
     </div>
 </main>
 
+<!-- МОДАЛЬНОЕ ОКНО ДЛЯ ПОДРОБНОСТЕЙ КНИГИ -->
+<div id="bookModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-body">
+            <div class="modal-image">
+                <img id="modalImg" src="" alt="Обложка книги">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p><strong>Автор:</strong> <span id="modalAuthor"></span></p>
+                <p><strong>Цена:</strong> <span id="modalPrice"></span> ₽</p>
+                <p><strong>Жанр:</strong> <span id="modalGenre"></span></p>
+                <p><strong>Описание:</strong></p>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- (footer) -->
-<footer>
+<footer id="about">
     <p>© 2026 Мир книг — ваш надёжный магазин литературы. Все права защищены.</p>
-    <p>Выполнила студентка ИСПк-023 | Проект: книжный магазин </p>
+    <p> Телефон: +79087689067<br>Почта: olga.andreianova@mail.ru</p>
 </footer>
 
 <script src="js/main.js"></script>
