@@ -323,3 +323,130 @@ document.addEventListener("click", function(e) {
         openBookModal(bookId);
     }
 });
+
+// ========== МОДАЛЬНАЯ КОРЗИНА ==========
+// ========== МОДАЛЬНАЯ КОРЗИНА ==========
+let cart = [];
+
+// Обновление счётчика на иконке корзины
+function updateCartCount() {
+    const countSpan = document.getElementById("cartCount");
+    if (countSpan) {
+        let total = 0;
+        cart.forEach(item => total += item.qty);
+        countSpan.innerText = total;
+    }
+}
+
+// Добавление товара в корзину
+function addToCart(bookId) {
+    const book = allBooks.find(b => b.id == bookId);
+    if (!book) return;
+    
+    const exist = cart.find(i => i.id == bookId);
+    if (exist) {
+        exist.qty++;
+    } else {
+        cart.push({ id: book.id, title: book.title, price: book.price, qty: 1 });
+    }
+    
+    updateCartCount();
+    updateCartModalContent();
+    alert(`"${book.title}" добавлена в корзину`);
+}
+
+// Обновление содержимого модального окна корзины
+function updateCartModalContent() {
+    const container = document.getElementById("cartModalItems");
+    const totalSpan = document.getElementById("cartModalTotal");
+    
+    if (!cart.length) {
+        container.innerHTML = "Пусто";
+        totalSpan.innerText = "0";
+        return;
+    }
+    
+    let total = 0;
+    container.innerHTML = cart.map(item => {
+        total += item.price * item.qty;
+        return `<div style="border-bottom:1px solid #eee; padding:8px 0;">${item.title}<br>${item.price}₽ x ${item.qty} <button class="modal-del" data-id="${item.id}" style="float:right; background:#f4c542; border:none; border-radius:5px; cursor:pointer;">✕</button></div>`;
+    }).join('');
+    totalSpan.innerText = total;
+    
+    document.querySelectorAll('.modal-del').forEach(btn => {
+        btn.onclick = () => {
+            cart = cart.filter(i => i.id != btn.dataset.id);
+            updateCartCount();
+            updateCartModalContent();
+        };
+    });
+}
+
+// Открытие модального окна корзины
+function openCartModal() {
+    updateCartModalContent();
+    const cartModal = document.getElementById("cartModal");
+    const cartOverlay = document.getElementById("cartOverlay");
+    if (cartModal) cartModal.style.display = "block";
+    if (cartOverlay) cartOverlay.style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+
+// Закрытие модального окна корзины
+function closeCartModal() {
+    const cartModal = document.getElementById("cartModal");
+    const cartOverlay = document.getElementById("cartOverlay");
+    if (cartModal) cartModal.style.display = "none";
+    if (cartOverlay) cartOverlay.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
+// Оформление заказа
+function checkout() {
+    if (!cart.length) return alert("Корзина пуста!");
+    alert(`Спасибо за покупку!\nСумма: ${document.getElementById("cartModalTotal").innerText} ₽`);
+    cart = [];
+    updateCartCount();
+    updateCartModalContent();
+    closeCartModal();
+}
+
+// Добавление кнопок корзины в карточки
+function addCartButtonsToCards() {
+    const cards = document.querySelectorAll("#catalogGrid .book-card");
+    cards.forEach(card => {
+        if (card.querySelector('.cart-btn')) return;
+        const detailsBtn = card.querySelector(".btn[data-id]");
+        if (!detailsBtn) return;
+        const container = document.createElement("div");
+        container.className = "btn-container";
+        detailsBtn.remove();
+        container.appendChild(detailsBtn);
+        const cartBtn = document.createElement("button");
+        cartBtn.className = "cart-btn";
+        cartBtn.innerHTML = "🛒";
+        cartBtn.onclick = (e) => {
+            e.stopPropagation();
+            addToCart(detailsBtn.getAttribute("data-id"));
+        };
+        container.appendChild(cartBtn);
+        card.appendChild(container);
+    });
+}
+
+// Привязываем события после загрузки страницы
+document.addEventListener("DOMContentLoaded", function() {
+    addCartButtonsToCards();
+    
+    const cartIcon = document.getElementById("cartIconBtn");
+    if (cartIcon) cartIcon.onclick = openCartModal;
+    
+    const closeBtn = document.getElementById("closeCartModal");
+    if (closeBtn) closeBtn.onclick = closeCartModal;
+    
+    const overlay = document.getElementById("cartOverlay");
+    if (overlay) overlay.onclick = closeCartModal;
+    
+    const checkoutBtn = document.getElementById("cartModalCheckoutBtn");
+    if (checkoutBtn) checkoutBtn.onclick = checkout;
+});
